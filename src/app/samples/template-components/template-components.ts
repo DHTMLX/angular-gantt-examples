@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import type { GanttStatic } from '@dhx/gantt';
+import type { GanttStatic } from '@dhtmlx/trial-angular-gantt';
 import { DhxGanttComponent, templateComponent, type TaskFilter } from '@dhtmlx/trial-angular-gantt';
 
 import { DemoToolbarComponent } from '../../shared/demo-toolbar/demo-toolbar';
