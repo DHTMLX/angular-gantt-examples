@@ -1,0 +1,13 @@
+@import "@dhtmlx/trial-angular-gantt/dist/angular-gantt.css";
+.dhx-gantt-root {
+  height: 100%;
+  width: 100%;
+}
+
+.gantt_task_cell.week_end, .gantt_task_cell.no_work_hour {
+	background-color: var(--dhx-gantt-base-colors-background-alt);
+}
+
+.gantt_task_row.gantt_selected .gantt_task_cell.week_end {
+	background-color: var(--dhx-gantt-base-colors-select);
+}

@@ -1,0 +1,15 @@
+<div class="card">
+  <dhx-demo-toolbar title="Auto Scheduling">
+    <button (click)="runAutoSchedule()">Run Auto Scheduling</button>
+  </dhx-demo-toolbar>
+
+  <div class="gantt-host">
+    <dhx-gantt [tasks]="tasks" [links]="links" [config]="config" [plugins]="plugins"
+      [data]="dataConfig">
+    </dhx-gantt>
+  </div>
+
+  <div class="note">
+    Verifies plugin enablement + calling underlying API via <code>ViewChild</code>.
+  </div>
+</div>

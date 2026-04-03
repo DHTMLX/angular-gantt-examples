@@ -1,0 +1,59 @@
+{
+  "name": "angular-gantt-examples",
+  "version": "9.1.4-beta1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "@dhtmlx/trial-angular-gantt": "^9.1.4-beta1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.1.2",
+    "@angular/cli": "^21.1.2",
+    "@angular/compiler-cli": "^21.1.0",
+    "@angular/platform-browser": "^21.1.2",
+    "jsdom": "^27.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  },
+  "description": "Public demos for the DHTMLX Angular Gantt wrapper.",
+  "author": "DHTMLX Team <support@dhtmlx.com>",
+  "license": "MIT",
+  "homepage": "https://dhtmlx.github.io/angular-gantt-examples/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DHTMLX/angular-gantt-examples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DHTMLX/angular-gantt-examples/issues"
+  },
+  "keywords": [
+    "dhtmlx",
+    "gantt",
+    "angular"
+  ]
+}

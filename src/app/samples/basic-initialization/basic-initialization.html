@@ -1,0 +1,13 @@
+<div class="card">
+  <dhx-demo-toolbar title="Basic Initialization">
+    <button (click)="addTask()">Add Task (Angular state)</button>
+  </dhx-demo-toolbar>
+  <div class="gantt-host">
+    <dhx-gantt style="height:600px" [tasks]="tasks" [links]="links" [config]="config" [data]="dataConfig">
+    </dhx-gantt>
+  </div>
+
+  <div class="note">
+    Verifies init + incremental updates from Angular state + unified <code>data.save</code> callback.
+  </div>
+</div>

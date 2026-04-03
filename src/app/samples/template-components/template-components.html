@@ -1,0 +1,31 @@
+<div class="card template-components-demo">
+  <dhx-demo-toolbar title="Template Components">
+    <button (click)="toggleTheme()">
+      Toggle Theme ({{ theme }})
+    </button>
+    <button (click)="toggleLocale()">
+      Toggle Locale ({{ locale }})
+    </button>
+  </dhx-demo-toolbar>
+
+  <div class="gantt-host">
+    <dhx-gantt
+      [tasks]="tasks"
+      [links]="links"
+      [templates]="templates"
+      [config]="config"
+      [filter]="taskFilter"
+      [theme]="theme"
+      [locale]="locale"
+      (ready)="onReady($event)"
+    >
+    </dhx-gantt>
+  </div>
+
+  <div class="note">
+    Demonstrates Angular components inside template hooks:
+    <code>templates.task_text</code>,
+    <code>config.columns[].template</code>,
+    and <code>config.columns[].label</code>.
+  </div>
+</div>

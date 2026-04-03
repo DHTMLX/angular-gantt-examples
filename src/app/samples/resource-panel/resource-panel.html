@@ -1,0 +1,30 @@
+<section class="card resource-panel-demo" data-cy="resource-panel-demo">
+  <dhx-demo-toolbar title="Resource Panel">
+    <label class="resource-filter-label" for="resource-filter">Resource</label>
+    <select
+      id="resource-filter"
+      class="resource-filter-select"
+      data-cy="resource-filter"
+      [value]="selectedResourceId"
+      (change)="onResourceFilterChange($event)"
+    >
+      <option value="">All</option>
+      @for (resource of filterableResources; track resource.id) {
+        <option [value]="resource.id">{{ resource.text }}</option>
+      }
+    </select>
+  </dhx-demo-toolbar>
+
+  <div class="gantt-host">
+    <dhx-gantt
+      [tasks]="tasks"
+      [links]="links"
+      [resources]="resources"
+      [resourceFilter]="resourceFilter"
+      [templates]="templates"
+      [config]="config"
+      (ready)="onReady($event)"
+    >
+    </dhx-gantt>
+  </div>
+</section>

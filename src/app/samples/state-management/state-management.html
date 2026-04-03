@@ -1,0 +1,20 @@
+@if (vm$ | async; as vm) {
+  <section class="card" data-cy="state-management-demo">
+    <dhx-demo-toolbar title="State Management">
+      <button data-cy="state-undo" [disabled]="!vm.canUndo" (click)="undo()">Undo</button>
+      <button data-cy="state-redo" [disabled]="!vm.canRedo" (click)="redo()">Redo</button>
+      <button data-cy="zoom-day" [class.active]="vm.zoomLevel === 'day'" (click)="setZoom('day')">Day</button>
+      <button data-cy="zoom-month" [class.active]="vm.zoomLevel === 'month'" (click)="setZoom('month')">Month</button>
+      <button data-cy="zoom-year" [class.active]="vm.zoomLevel === 'year'" (click)="setZoom('year')">Year</button>
+    </dhx-demo-toolbar>
+
+    <div class="gantt-host">
+      <dhx-gantt [tasks]="vm.tasks" [links]="vm.links" [config]="vm.config" [data]="dataConfig">
+      </dhx-gantt>
+    </div>
+
+    <div class="note">
+      Demonstrates <code>data.batchSave</code> with undo/redo and zoom level switching.
+    </div>
+  </section>
+}

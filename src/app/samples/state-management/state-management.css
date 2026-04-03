@@ -1,0 +1,11 @@
+@import "@dhtmlx/trial-angular-gantt/dist/angular-gantt.css";
+
+.dhx-gantt-root {
+  height: 100%;
+  width: 100%;
+}
+
+button.active {
+  background: rgba(229, 57, 53, .10);
+  border-color: rgba(229, 57, 53, .25);
+}

@@ -1,0 +1,26 @@
+<div class="card">
+  <dhx-demo-toolbar title="Configs and Templates">
+    <button (click)="toggleScales()">
+      Toggle Scales ({{ showMonths ? 'Month/Day' : 'Week/Day' }})
+    </button>
+    <button (click)="toggleTemplateEmphasis()">
+      Toggle Template Emphasis ({{ emphasizeHighProgress ? 'On' : 'Off' }})
+    </button>
+  </dhx-demo-toolbar>
+
+  <style>
+    .demo-highlight-task .gantt_task_content {
+      font-weight: 700;
+    }
+  </style>
+
+  <div class="gantt-host">
+    <dhx-gantt [tasks]="tasks" [links]="links" [config]="config" [templates]="templates" [markers]="markers"
+      [plugins]="plugins" [data]="dataConfig">
+    </dhx-gantt>
+  </div>
+
+  <div class="note">
+    Verifies runtime updates of <code>config</code> and <code>templates</code> inputs.
+  </div>
+</div>

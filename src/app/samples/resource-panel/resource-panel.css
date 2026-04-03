@@ -1,0 +1,57 @@
+@import "@dhtmlx/trial-angular-gantt/dist/angular-gantt.css";
+
+.resource-panel-demo .dhx-gantt-root {
+  height: 100%;
+  width: 100%;
+}
+
+.resource-filter-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.resource-filter-select {
+  min-width: 180px;
+  padding: 4px 8px;
+}
+
+.folder_row {
+  font-weight: 700;
+}
+
+.group_row,
+.group_row.odd,
+.gantt_task_row.group_row {
+  background-color: rgba(232, 232, 232, 0.6);
+}
+
+.gantt_task_cell.week_end {
+  background-color: #e8e8e87d;
+}
+
+.gantt_task_row.gantt_selected .gantt_task_cell.week_end {
+  background-color: #e8e8e87d !important;
+}
+
+.owner-label {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 25px;
+  background: #e6e6e6;
+  color: #6f6f6f;
+  margin: 0 3px;
+  font-weight: 700;
+}
+
+.column_overload .gantt_histogram_fill {
+  background-color: color-mix(in srgb, var(--dhx-gantt-base-colors-error), transparent 60%);
+}
+
+.gantt_row.resource_row_hidden,
+.gantt_task_row.resource_row_hidden {
+  display: none;
+}

@@ -1,0 +1,138 @@
+<div class="lightbox-backdrop" (click)="onCancelClick()"></div>
+<div class="lightbox-modal">
+  <div class="lightbox-header">
+    <h3>{{ isNewTask ? 'New Task' : 'Edit Task' }}</h3>
+    <button class="close-btn" (click)="onCancelClick()" title="Close">
+      &times;
+    </button>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn" [class.active]="activeTab === 'general'"
+            (click)="activeTab = 'general'">General</button>
+    <button class="tab-btn" [class.active]="activeTab === 'predecessors'"
+            (click)="activeTab = 'predecessors'">Predecessors</button>
+  </div>
+
+  <div class="lightbox-body" *ngIf="activeTab === 'general'">
+    <div class="form-group">
+      <label>Text</label>
+      <input
+        [(ngModel)]="localTask.text"
+        class="form-input"
+        placeholder="Task name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        [(ngModel)]="localTask.description"
+        class="form-input form-textarea"
+        placeholder="Task description"
+      ></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Start Date</label>
+        <input
+          type="date"
+          class="form-input"
+          [value]="startDateStr"
+          (change)="onStartDateChange($event)"
+        />
+      </div>
+      <div class="form-group">
+        <label>Duration (days)</label>
+        <input
+          type="number"
+          class="form-input"
+          [(ngModel)]="localTask.duration"
+          min="0"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox-body" *ngIf="activeTab === 'predecessors'">
+    <div *ngIf="isNewTask" class="placeholder-text">
+      Save the task first to add predecessors.
+    </div>
+
+    <div *ngIf="!isNewTask" class="predecessors-editor">
+      <table class="pred-table">
+        <thead>
+          <tr>
+            <th class="col-id">ID</th>
+            <th class="col-name">Task Name</th>
+            <th class="col-type">Type</th>
+            <th class="col-lag">Lag</th>
+            <th class="col-action"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of predecessors; let i = index">
+            <td class="col-id">{{ row.sourceId }}</td>
+            <td class="col-name">
+              <select
+                *ngIf="!row.linkId"
+                class="form-input pred-select"
+                [ngModel]="row.sourceId"
+                (ngModelChange)="onPredecessorTaskChange(i, $event)"
+              >
+                <option [ngValue]="null">-- Select task --</option>
+                <option *ngFor="let t of availableTasks" [ngValue]="t.id">
+                  {{ t.text }}
+                </option>
+              </select>
+              <span *ngIf="row.linkId">{{ row.sourceName }}</span>
+            </td>
+            <td class="col-type">
+              <select class="form-input pred-select" [(ngModel)]="row.type">
+                <option *ngFor="let lt of linkTypes" [value]="lt.value">
+                  {{ lt.label }}
+                </option>
+              </select>
+            </td>
+            <td class="col-lag">
+              <input
+                type="number"
+                class="form-input pred-input"
+                [(ngModel)]="row.lag"
+                min="0"
+              />
+            </td>
+            <td class="col-action">
+              <button class="remove-btn" (click)="removePredecessor(i)" title="Remove">
+                &times;
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="predecessors.length === 0">
+            <td colspan="5" class="empty-row">
+              No predecessors. Click "Add" to create one.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-add" (click)="addPredecessor()">
+        + Add Predecessor
+      </button>
+    </div>
+  </div>
+
+  <div class="lightbox-footer">
+    <button class="btn btn-danger" (click)="onDeleteClick()" [disabled]="isNewTask">
+      Delete
+    </button>
+    <div class="footer-spacer"></div>
+    <button class="btn btn-secondary" (click)="onCancelClick()">
+      Cancel
+    </button>
+    <button class="btn btn-primary" (click)="onSaveClick()">
+      OK
+    </button>
+  </div>
+</div>

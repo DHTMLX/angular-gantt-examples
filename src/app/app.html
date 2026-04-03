@@ -1,0 +1,85 @@
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span>DHTMLX Gantt - Angular Wrapper Demos</span>
+    </div>
+
+    <nav class="topbar-links">
+      <a href="https://docs.dhtmlx.com/gantt/" target="_blank" rel="noreferrer">Documentation</a>
+      <a href="https://docs.dhtmlx.com/gantt/api/api-overview/" target="_blank" rel="noreferrer">API</a>
+      <a href="https://dhtmlx.com/docs/products/dhtmlxGantt/" target="_blank" rel="noreferrer">Product</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <aside class="sidebar">
+      <h3>Samples</h3>
+
+      <a class="nav-item"
+         routerLink="/basic"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+        Basic Initialization
+      </a>
+
+      <a class="nav-item"
+         routerLink="/configs-templates"
+         routerLinkActive="active">
+        Configs and Templates
+      </a>
+
+      <a class="nav-item"
+         routerLink="/auto-scheduling"
+         routerLinkActive="active">
+        Auto Scheduling
+      </a> 
+
+      <a class="nav-item"
+         routerLink="/resource-panel"
+         routerLinkActive="active">
+        Resource Panel
+      </a> 
+
+      <a class="nav-item"
+         routerLink="/calendars"
+         routerLinkActive="active">
+        Calendars
+      </a> 
+
+      <a class="nav-item"
+         routerLink="/inline-editors"
+         routerLinkActive="active">
+        Inline Editors
+      </a> 
+
+      <a class="nav-item"
+         routerLink="/custom-form"
+         routerLinkActive="active">
+        Custom Form
+      </a>
+
+      <a class="nav-item"
+         routerLink="/advanced-form"
+         routerLinkActive="active">
+        Advanced Form
+      </a>
+
+      <a class="nav-item"
+         routerLink="/template-components"
+         routerLinkActive="active">
+        Template Components
+      </a>
+
+      <a class="nav-item"
+         routerLink="/state-management"
+         routerLinkActive="active">
+        State Management
+      </a>
+    </aside>
+
+    <main class="main">
+      <router-outlet />
+    </main>
+  </div>
+</div>

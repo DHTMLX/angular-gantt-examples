@@ -1,0 +1,30 @@
+@import "@dhtmlx/trial-angular-gantt/dist/angular-gantt.css";
+
+.dhx-gantt-root {
+  height: 100%;
+  width: 100%;
+}
+
+.template-components-demo .gantt_grid_scale {
+  overflow: visible;
+  position: relative;
+  z-index: 4;
+}
+
+.template-components-demo .gantt_grid_head_cell.gantt_grid_head_custom {
+  overflow: visible;
+}
+
+.template-components-demo .gantt_grid_data {
+  position: relative;
+  z-index: 1;
+}
+
+.template-components-demo .header-filter-root {
+  position: relative;
+  z-index: 20;
+}
+
+.template-components-demo .header-filter-menu {
+  z-index: 30;
+}
