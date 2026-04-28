@@ -4,7 +4,8 @@
 
 > Standalone public showcase demos for the [DHTMLX Angular Gantt](https://dhtmlx.com/docs/products/dhtmlxGantt-for-Angular/) wrapper.
 
-- Documentation: https://github.com/DHTMLX/gantt-docs/tree/wrappers/docs/integrations/angular
+- Live demo: https://dhtmlx.github.io/angular-gantt-examples/
+- Documentation: https://docs.dhtmlx.com/gantt/integrations/angular/
 - Repository: https://github.com/DHTMLX/angular-gantt-examples
 
 ## How to start
@@ -14,7 +15,7 @@ npm install
 npm start
 ```
 
-The app starts locally with the public trial wrapper package `@dhtmlx/trial-angular-gantt` pinned to `^9.1.4-beta1`.
+The app starts locally with the public trial wrapper package `@dhtmlx/trial-angular-gantt` pinned to `^9.1.4`.
 
 ## Build for production
 
@@ -29,7 +30,7 @@ npm run build -- --base-href ./
 
 ## Useful links
 
-
-- Integration docs: https://github.com/DHTMLX/gantt-docs/tree/wrappers/docs/integrations/angular
+- Product page: https://dhtmlx.com/docs/products/dhtmlxGantt-for-Angular/
+- Integration docs: https://docs.dhtmlx.com/gantt/integrations/angular/
 - Support forum: https://forum.dhtmlx.com/c/gantt
-
+- GitHub Pages deployment: https://dhtmlx.github.io/angular-gantt-examples/
