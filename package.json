@@ -1,6 +1,6 @@
 {
   "name": "angular-gantt-examples",
-  "version": "9.1.4-beta1",
+  "version": "9.1.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,7 +27,7 @@
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
     "@angular/router": "^21.1.0",
-    "@dhtmlx/trial-angular-gantt": "^9.1.4-beta1",
+    "@dhtmlx/trial-angular-gantt": "^9.1.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
