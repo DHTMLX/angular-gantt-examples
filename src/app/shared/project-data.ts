@@ -1,11 +1,11 @@
-import type { SerializedTask, SerializedLink } from '@dhtmlx/trial-angular-gantt';
+import type { Task, SerializedTask, Link, SerializedLink } from '@dhtmlx/trial-angular-gantt';
 
 export interface ProjectDemoData {
-  tasks: SerializedTask[];
-  links: SerializedLink[];
+  tasks: Task[];
+  links: Link[];
 }
 
-const baseTasks: SerializedTask[] = [
+const baseTasks: Task[] = [
   { id: 1, text: 'Office itinerancy', type: 'project', start_date: new Date(2025, 3, 2), duration: 17, progress: 0.4, parent: 0, open: true },
   { id: 2, text: 'Office facing', type: 'project', start_date: new Date(2025, 3, 2), duration: 8, progress: 0.6, parent: 1, open: true },
   { id: 3, text: 'Furniture installation', type: 'project', start_date: new Date(2025, 3, 11), duration: 8, progress: 0.6, parent: 1, open: true },
@@ -33,7 +33,7 @@ const baseTasks: SerializedTask[] = [
   { id: 24, text: 'Release v1.0', type: 'milestone', start_date: new Date(2025, 3, 18), duration: 0, progress: 0, parent: 11 },
 ];
 
-const baseLinks: SerializedLink[] = [
+const baseLinks: Link[] = [
   { id: 2, source: 2, target: 3, type: '0' },
   { id: 3, source: 3, target: 4, type: '0' },
   { id: 7, source: 8, target: 9, type: '0' },
@@ -45,21 +45,21 @@ const baseLinks: SerializedLink[] = [
   { id: 23, source: 25, target: 18, type: '0' },
 ];
 
-const cloneDate = (value: unknown): unknown => {
+const cloneDate = (value: Date | undefined): Date | undefined => {
   if (value instanceof Date) {
     return new Date(value.getTime());
   }
   return value;
 };
 
-const cloneTask = (task: SerializedTask): SerializedTask => {
-  const next: SerializedTask = { ...task };
-  next.start_date = cloneDate(task.start_date) as Date | string;
-  next.end_date = cloneDate(task.end_date) as Date | string | undefined;
+const cloneTask = (task: Task): Task => {
+  const next: Task = { ...task };
+  next.start_date = cloneDate(task.start_date);
+  next.end_date = cloneDate(task.end_date);
   return next;
 };
 
-const cloneLink = (link: SerializedLink): SerializedLink => ({ ...link });
+const cloneLink = (link: Link): Link => ({ ...link });
 
 export function createProjectDemoData(): ProjectDemoData {
   return {

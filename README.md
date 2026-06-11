@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-The app starts locally with the public trial wrapper package `@dhtmlx/trial-angular-gantt` pinned to `^9.1.4`.
+The app starts locally with the public trial wrapper package `@dhtmlx/trial-angular-gantt` pinned to `^10.0.0`.
 
 ## Build for production
 

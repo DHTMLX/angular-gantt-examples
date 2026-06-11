@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import type { AngularGanttDataConfig, BatchChanges, SerializedTask, SerializedLink } from '@dhtmlx/trial-angular-gantt';
+import type { AngularGanttDataConfig, BatchChanges, Task, Link, ZoomLevel as GanttZoomLevel } from '@dhtmlx/trial-angular-gantt';
 import { BehaviorSubject, map } from 'rxjs';
 import { applyBatchChanges } from '../../shared/apply-batch-changes';
 import { createProjectDemoData } from '../../shared/project-data';
@@ -7,14 +7,14 @@ import { createProjectDemoData } from '../../shared/project-data';
 export type ZoomLevel = 'day' | 'month' | 'year';
 
 interface Snapshot {
-  tasks: SerializedTask[];
-  links: SerializedLink[];
+  tasks: Task[];
+  links: Link[];
   zoomLevel: ZoomLevel;
 }
 
 interface StateManagementStoreState {
-  tasks: SerializedTask[];
-  links: SerializedLink[];
+  tasks: Task[];
+  links: Link[];
   zoomLevel: ZoomLevel;
   config: StateManagementConfig;
   past: Snapshot[];
@@ -30,15 +30,15 @@ interface StateManagementConfig {
 }
 
 export interface StateManagementViewModel {
-  tasks: SerializedTask[];
-  links: SerializedLink[];
+  tasks: Task[];
+  links: Link[];
   zoomLevel: ZoomLevel;
   canUndo: boolean;
   canRedo: boolean;
   config: StateManagementConfig;
 }
 
-const zoomLevels = [
+const zoomLevels: GanttZoomLevel[] = [
   {
     name: 'day',
     scale_height: 27,
@@ -60,7 +60,7 @@ const zoomLevels = [
     min_column_width: 36,
     scales: [{ unit: 'year', step: 1, format: '%Y' }],
   },
-] as const;
+];
 
 const cloneDate = (value: unknown): unknown => {
   if (value instanceof Date) {
@@ -69,14 +69,14 @@ const cloneDate = (value: unknown): unknown => {
   return value;
 };
 
-const cloneTask = (task: SerializedTask): SerializedTask => {
-  const next: SerializedTask = { ...task };
-  next.start_date = cloneDate(task.start_date) as Date | string;
-  next.end_date = cloneDate(task.end_date) as Date | string | undefined;
+const cloneTask = (task: Task): Task => {
+  const next: Task = { ...task };
+  next.start_date = cloneDate(task.start_date) as Date | undefined;
+  next.end_date = cloneDate(task.end_date) as Date | undefined;
   return next;
 };
 
-const cloneLink = (link: SerializedLink): SerializedLink => ({ ...link });
+const cloneLink = (link: Link): Link => ({ ...link });
 
 const createConfig = (zoomLevel: ZoomLevel): StateManagementConfig => ({
   date_format: '%Y-%m-%d %H:%i',
@@ -178,7 +178,7 @@ export class StateManagementStore {
 
     const state = this.stateSubject.value;
     const withHistory = this.pushHistory(state);
-    const next = applyBatchChanges<SerializedTask, SerializedLink>(
+    const next = applyBatchChanges<Task, Link>(
       withHistory.tasks,
       withHistory.links,
       changes,

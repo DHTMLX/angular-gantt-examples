@@ -187,7 +187,7 @@ export class AdvancedFormComponent {
           lag: row.lag || 0,
         });
       } else {
-        // New row — add a new link
+        // New row — add a new link (gantt assigns the id internally)
         toAdd.push({
           source: row.sourceId,
           target: taskId,
