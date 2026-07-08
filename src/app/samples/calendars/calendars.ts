@@ -18,7 +18,7 @@ export class CalendarsComponent {
 
   tasks = this.initial.tasks;
   links = this.initial.links;
-  locale = 'ru';
+
   calendars = [
     {
       id: 'custom', // optional

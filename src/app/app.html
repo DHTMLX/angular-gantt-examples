@@ -1,4 +1,5 @@
 <div class="app-shell">
+  @if (!embedded()) {
   <header class="topbar">
     <div class="brand">
       <span class="logo" aria-hidden="true"></span>
@@ -11,8 +12,10 @@
       <a href="https://dhtmlx.com/docs/products/dhtmlxGantt/" target="_blank" rel="noreferrer">Product</a>
     </nav>
   </header>
+  }
 
   <div class="content">
+    @if (!embedded()) {
     <aside class="sidebar">
       <h3>Samples</h3>
 
@@ -77,6 +80,7 @@
         State Management
       </a>
     </aside>
+    }
 
     <main class="main">
       <router-outlet />
