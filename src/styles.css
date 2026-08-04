@@ -172,3 +172,39 @@ button:hover { background: rgba(0,0,0,.04); }
   flex-direction: column;
   background: #fff;
 }
+
+:root[data-embed-theme="dark"],
+:root[data-embed-theme="dark"] .gantt_container {
+  --dhx-gantt-theme: dark;
+}
+
+:root[data-embed-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-embed-theme="dark"] body,
+:root[data-embed-theme="dark"] .content,
+:root[data-embed-theme="dark"] .main {
+  background: #141414;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-embed-theme="dark"] .card,
+:root[data-embed-theme="dark"] .demo-toolbar,
+:root[data-embed-theme="dark"] .note,
+:root[data-embed-theme="dark"] .resource-sidebar,
+:root[data-embed-theme="dark"] .resource-main {
+  background: #1b1b1c;
+  border-color: #4b4b4b;
+}
+
+:root[data-embed-theme="dark"] button,
+:root[data-embed-theme="dark"] select {
+  background: #1b1b1c;
+  color: rgba(255, 255, 255, 0.9);
+  border-color: #4b4b4b;
+}
+
+:root[data-embed-theme="dark"] button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
